@@ -1,0 +1,54 @@
+/* REPXIR design tokens — REPXIR_Brand_Guide.md §7, §8, §17 */
+:root {
+  --rx-bg: #191B1B;
+  --rx-surface: #252827;
+  --rx-raised: #343836;
+  --rx-raised-hover: #3d423f;
+  --rx-lime: #E6FF57;
+  --rx-lime-hover: #EEFF85;
+  --rx-lime-ink: #191B1B;
+  --rx-lime-soft: rgba(230, 255, 87, 0.12);
+  --rx-text: #F3F5EF;
+  --rx-muted: #A8B0AA;
+  --rx-border: #474D49;
+  --rx-border-soft: #343836;
+  --rx-danger: #FF7C77;
+  --rx-danger-soft: rgba(255, 124, 119, 0.12);
+  --rx-success: #BEE89C;
+  --rx-success-soft: rgba(190, 232, 156, 0.12);
+
+  --rx-radius-sm: 8px;
+  --rx-radius-md: 12px;
+  --rx-radius-card: 16px;
+  --rx-radius-xl: 24px;
+  --rx-radius-pill: 999px;
+
+  --rx-space-1: 4px;
+  --rx-space-2: 8px;
+  --rx-space-3: 12px;
+  --rx-space-4: 16px;
+  --rx-space-5: 20px;
+  --rx-space-6: 24px;
+  --rx-space-8: 32px;
+  --rx-space-10: 40px;
+
+  --rx-font-display: 'Space Grotesk', system-ui, sans-serif;
+  --rx-font-body: 'Inter', system-ui, sans-serif;
+
+  --rx-tap: 44px;
+  --rx-nav-height: 64px;
+  --rx-rail-width: 232px;
+  --rx-content-max: 1080px;
+
+  --rx-ease: cubic-bezier(0.2, 0, 0, 1);
+  --rx-duration: 200ms;
+
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  color-scheme: dark;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --rx-duration: 0ms;
+  }
+}

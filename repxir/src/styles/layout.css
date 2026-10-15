@@ -1,0 +1,384 @@
+/* App shell: top bar + bottom tabs on phones, left rail on wide screens. */
+
+.app {
+  min-height: 100dvh;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--rx-space-3);
+  height: 60px;
+  padding: 0 var(--rx-space-4);
+  background: color-mix(in srgb, var(--rx-bg) 92%, transparent);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--rx-border-soft);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--rx-space-2);
+  min-height: var(--rx-tap);
+}
+
+.brand__mark {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+  background: var(--rx-raised);
+  color: var(--rx-lime);
+  font-family: var(--rx-font-display);
+  font-weight: 700;
+  font-size: 0.875rem;
+  letter-spacing: -0.02em;
+}
+
+.brand__word {
+  font-family: var(--rx-font-display);
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: 0.02em;
+}
+
+.main {
+  width: 100%;
+  max-width: var(--rx-content-max);
+  margin: 0 auto;
+  padding: var(--rx-space-5) var(--rx-space-4) calc(var(--rx-nav-height) + var(--safe-bottom) + var(--rx-space-8));
+}
+
+.app--has-session .main {
+  padding-bottom: calc(var(--rx-nav-height) + var(--safe-bottom) + 72px + var(--rx-space-6));
+}
+
+.main:focus {
+  outline: none;
+}
+
+/* Bottom tabs (phone/tablet) */
+.tabbar {
+  position: fixed;
+  inset: auto 0 0 0;
+  z-index: 30;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  height: calc(var(--rx-nav-height) + var(--safe-bottom));
+  padding-bottom: var(--safe-bottom);
+  background: var(--rx-surface);
+  border-top: 1px solid var(--rx-border-soft);
+}
+
+.tabbar__link {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  min-height: var(--rx-tap);
+  color: var(--rx-muted);
+  font-size: 0.75rem;
+  font-weight: 500;
+  transition: color var(--rx-duration) var(--rx-ease);
+}
+
+.tabbar__link:hover {
+  color: var(--rx-text);
+}
+
+.tabbar__link[aria-current='page'] {
+  color: var(--rx-lime);
+}
+
+.tabbar__link[aria-current='page']::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 30%;
+  right: 30%;
+  height: 3px;
+  border-radius: 0 0 3px 3px;
+  background: var(--rx-lime);
+}
+
+/* Left rail (desktop) */
+.rail {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .app {
+    display: grid;
+    grid-template-columns: var(--rx-rail-width) 1fr;
+  }
+
+  .topbar,
+  .tabbar {
+    display: none;
+  }
+
+  .rail {
+    position: sticky;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--rx-space-6);
+    height: 100dvh;
+    padding: var(--rx-space-6) var(--rx-space-4);
+    background: var(--rx-surface);
+    border-right: 1px solid var(--rx-border-soft);
+  }
+
+  .rail__nav {
+    display: flex;
+    flex-direction: column;
+    gap: var(--rx-space-1);
+  }
+
+  .rail__link {
+    display: flex;
+    align-items: center;
+    gap: var(--rx-space-3);
+    min-height: var(--rx-tap);
+    padding: 0 var(--rx-space-3);
+    border-radius: var(--rx-radius-md);
+    color: var(--rx-muted);
+    font-weight: 500;
+    transition: background var(--rx-duration) var(--rx-ease), color var(--rx-duration) var(--rx-ease);
+  }
+
+  .rail__link:hover {
+    background: var(--rx-raised);
+    color: var(--rx-text);
+  }
+
+  .rail__link[aria-current='page'] {
+    background: var(--rx-lime-soft);
+    color: var(--rx-lime);
+  }
+
+  .rail__footer {
+    margin-top: auto;
+  }
+
+  .main {
+    padding: var(--rx-space-8) var(--rx-space-8) var(--rx-space-10);
+  }
+
+  .app--has-session .main {
+    padding-bottom: calc(96px + var(--rx-space-6));
+  }
+
+  h1 {
+    font-size: 2rem;
+    line-height: 2.375rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    line-height: 1.875rem;
+  }
+}
+
+/* "Return to workout" bar: an entry point, not an extra tab (design.md §5). */
+.session-bar {
+  position: fixed;
+  left: var(--rx-space-3);
+  right: var(--rx-space-3);
+  bottom: calc(var(--rx-nav-height) + var(--safe-bottom) + var(--rx-space-3));
+  z-index: 25;
+  display: flex;
+  align-items: center;
+  gap: var(--rx-space-3);
+  min-height: 56px;
+  padding: var(--rx-space-2) var(--rx-space-2) var(--rx-space-2) var(--rx-space-4);
+  border-radius: var(--rx-radius-card);
+  background: var(--rx-lime);
+  color: var(--rx-lime-ink);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.session-bar__text {
+  flex: 1;
+  min-width: 0;
+  line-height: 1.25;
+}
+
+.session-bar__name,
+.session-bar__meta {
+  display: block;
+}
+
+.session-bar__name {
+  font-weight: 700;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.session-bar__meta {
+  font-size: 0.8125rem;
+  font-weight: 500;
+}
+
+.session-bar .btn {
+  background: var(--rx-lime-ink);
+  color: var(--rx-lime);
+}
+
+.session-bar .btn:hover {
+  background: #000;
+}
+
+@media (min-width: 1024px) {
+  .session-bar {
+    left: calc(var(--rx-rail-width) + var(--rx-space-8));
+    right: var(--rx-space-8);
+    bottom: var(--rx-space-6);
+    max-width: calc(var(--rx-content-max) - 2 * var(--rx-space-8));
+    margin: 0 auto;
+  }
+}
+
+/* "New version ready" prompt. It sits in the session bar's slot above the tab
+   bar (it is never shown during a workout) and in the corner on desktop. */
+.update-prompt {
+  position: fixed;
+  left: var(--rx-space-3);
+  right: var(--rx-space-3);
+  bottom: calc(var(--rx-nav-height) + var(--safe-bottom) + var(--rx-space-3));
+  z-index: 25;
+  pointer-events: none;
+}
+
+.update-prompt__toast {
+  flex-wrap: nowrap;
+  max-width: 440px;
+  margin: 0 auto;
+  padding-left: var(--rx-space-3);
+}
+
+.update-prompt__toast .toast__message {
+  flex: 1 1 auto;
+}
+
+@media (min-width: 1024px) {
+  .update-prompt {
+    left: auto;
+    right: var(--rx-space-6);
+    bottom: var(--rx-space-6);
+  }
+}
+
+/* Page header with optional back button and action */
+.page-header {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--rx-space-2);
+  margin-bottom: var(--rx-space-5);
+}
+
+.page-header__text {
+  flex: 1;
+  min-width: 0;
+}
+
+.page-header__back {
+  margin-left: calc(-1 * var(--rx-space-3));
+  margin-top: -6px;
+}
+
+.page-header__subtitle {
+  margin-top: var(--rx-space-1);
+  color: var(--rx-muted);
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rx-space-3);
+}
+
+.section + .section {
+  margin-top: var(--rx-space-8);
+}
+
+.stack > .section + .section {
+  margin-top: 0;
+}
+
+.section__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--rx-space-3);
+}
+
+.section__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  min-height: var(--rx-tap);
+  color: var(--rx-muted);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.section__link:hover {
+  color: var(--rx-lime);
+}
+
+.grid {
+  display: grid;
+  gap: var(--rx-space-3);
+}
+
+.grid--2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.grid--3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.grid--auto {
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));
+}
+
+@media (min-width: 600px) {
+  .grid--2-md {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.split {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rx-space-6);
+}
+
+@media (min-width: 1024px) {
+  .split {
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(300px, 1fr);
+    gap: var(--rx-space-8);
+    align-items: start;
+  }
+
+  .split > .section + .section,
+  .split > * + .section {
+    margin-top: 0;
+  }
+
+  .sticky-col {
+    position: sticky;
+    top: var(--rx-space-8);
+  }
+}

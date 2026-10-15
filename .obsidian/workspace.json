@@ -1,0 +1,296 @@
+{
+  "main": {
+    "id": "2c7231f79c0ddf57",
+    "type": "split",
+    "children": [
+      {
+        "id": "4927cb2c344b00a4",
+        "type": "split",
+        "children": [
+          {
+            "id": "54bf6468c022a714",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "0147dcb356e990af",
+                "type": "leaf",
+                "state": {
+                  "type": "graph",
+                  "state": {},
+                  "icon": "lucide-git-fork",
+                  "title": "Graph view"
+                }
+              }
+            ]
+          },
+          {
+            "id": "6fa5e553e7e2aedf",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "d0fc338585d6a00d",
+                "type": "leaf",
+                "pinned": true,
+                "state": {
+                  "type": "terminal:terminal",
+                  "state": {
+                    "terminal:terminal": {
+                      "cwd": "/Users/sai/codePlatoon/week2/number-guessing-game",
+                      "focus": false,
+                      "profile": {
+                        "args": [
+                          "--login"
+                        ],
+                        "environment": [],
+                        "executable": "/bin/zsh",
+                        "followTheme": true,
+                        "name": "",
+                        "platforms": {
+                          "darwin": true
+                        },
+                        "pythonExecutable": "python3",
+                        "restoreHistory": false,
+                        "rightClickAction": "copyPaste",
+                        "successExitCodes": [
+                          "0",
+                          "SIGINT",
+                          "SIGTERM"
+                        ],
+                        "terminalOptions": {
+                          "documentOverride": null
+                        },
+                        "type": "integrated",
+                        "win32Backend": "conpty"
+                      },
+                      "profileSourceId": "darwinIntegratedDefault",
+                      "serial": null,
+                      "userTitle": ""
+                    }
+                  },
+                  "pinned": true,
+                  "icon": "terminal",
+                  "title": "zsh"
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "horizontal"
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "bd8d517ebf7e6f37",
+    "type": "split",
+    "children": [
+      {
+        "id": "d9707ed1b44ab906",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "0521bf21bf5a894f",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "fe820becb5a3decc",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "e026aaf4aa7bef5a",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "8094d92a946f6304",
+    "type": "split",
+    "children": [
+      {
+        "id": "d38c782494d7f584",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "83d07ebec761736f",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "CLAUDE.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks"
+            }
+          },
+          {
+            "id": "35f01b8e064074f7",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "CLAUDE.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links"
+            }
+          },
+          {
+            "id": "22c8840849b2068e",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "a379e476bd2ba68b",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "e35c018a9ff41541",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "CLAUDE.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false,
+      "terminal:Open terminal": false,
+      "reveal-hidden-files:Toggle hidden files visibility": false
+    }
+  },
+  "active": "d0fc338585d6a00d",
+  "lastOpenFiles": [
+    "repxir/test-results/.playwright-artifacts-1/traces",
+    "repxir/test-results/.playwright-artifacts-0/traces/resources/783b6b4a12040f190e9d7a880e7424c025403548.html",
+    "repxir/test-results/.playwright-artifacts-0/traces/resources/1f9a0d1baeea0fbd2ada1f3e10ba6f50ac713bff.css",
+    "repxir/test-results/.playwright-artifacts-0/traces/screencast/page@6e40ea74c0e3c37fe2d063ea1a7d1fd3-1792061713567.jpeg",
+    "repxir/test-results/.playwright-artifacts-0/traces/screencast/page@6e40ea74c0e3c37fe2d063ea1a7d1fd3-1792061713611.jpeg",
+    "repxir/test-results/.playwright-artifacts-0/traces/resources",
+    "repxir/test-results/.playwright-artifacts-0/traces/screencast",
+    "repxir/test-results/.playwright-artifacts-0/traces/a510cc93a867214a2ea0-7fdddc038bdfef87af34-recording1.trace",
+    "repxir/test-results/.playwright-artifacts-0/traces/a510cc93a867214a2ea0-7fdddc038bdfef87af34.network",
+    "repxir/test-results/.playwright-artifacts-0/traces/a510cc93a867214a2ea0-7fdddc038bdfef87af34.trace",
+    "repxir/test-results/.playwright-artifacts-0/traces/a510cc93a867214a2ea0-7fdddc038bdfef87af34-recording1.network",
+    "repxir/test-results/.playwright-artifacts-0/traces",
+    "repxir/test-results/.playwright-artifacts-2/traces/screencast",
+    "repxir/test-results/journeys-Journey-3-—-track-43151-eparately-and-review-totals-desktop-repeat2/error-context.md",
+    "repxir/test-results/.playwright-artifacts-18/traces/screencast/page@8eade13a8cd9998f7ab67f847f1fe8d3-1792061695705.jpeg",
+    "repxir/test-results/.playwright-artifacts-18/traces/screencast/page@8eade13a8cd9998f7ab67f847f1fe8d3-1792061695182.jpeg",
+    "repxir/test-results/.playwright-artifacts-18/traces/screencast/page@8eade13a8cd9998f7ab67f847f1fe8d3-1792061695150.jpeg",
+    "repxir/test-results/.playwright-artifacts-18/traces/screencast/page@8eade13a8cd9998f7ab67f847f1fe8d3-1792061695122.jpeg",
+    "repxir/test-results/.playwright-artifacts-18/traces/screencast/page@8eade13a8cd9998f7ab67f847f1fe8d3-1792061695086.jpeg",
+    "repxir/test-results/.playwright-artifacts-18/traces/screencast/page@8eade13a8cd9998f7ab67f847f1fe8d3-1792061695052.jpeg",
+    "repxir/test-results/.playwright-artifacts-18/traces/screencast/page@8eade13a8cd9998f7ab67f847f1fe8d3-1792061694984.jpeg",
+    "repxir/test-results/.playwright-artifacts-18/traces/screencast/page@8eade13a8cd9998f7ab67f847f1fe8d3-1792061694955.jpeg",
+    "repxir/test-results/app-navigation-and-deep-li-2ed6d-t-has-a-working-detail-page-desktop-repeat2/error-context.md",
+    "repxir/test-results/app-navigation-and-deep-li-9644f--scrolling-at-this-viewport-desktop-repeat2/error-context.md",
+    "repxir/test-results/app-navigation-and-deep-li-49582-states-with-one-next-action-desktop-repeat2/error-context.md",
+    "repxir/test-results/app-navigation-and-deep-li-7b300-ds-show-a-recoverable-state-desktop-repeat2/error-context.md",
+    "repxir/test-results/app-settings-and-data-expo-949c5-ing-and-import-restore-data-desktop-repeat2/error-context.md",
+    "repxir/test-results/app-settings-and-data-expo-949c5-ing-and-import-restore-data-desktop-repeat1/error-context.md",
+    "repxir/test-results/journeys-Journey-3-—-track-43151-eparately-and-review-totals-desktop-repeat1/error-context.md",
+    "repxir/test-results/journeys-Journey-3-—-track-43151-eparately-and-review-totals-mobile/error-context.md",
+    "repxir/test-results/journeys-Journey-3-—-track-43151-eparately-and-review-totals-desktop/error-context.md",
+    "repxir/test-results/app-navigation-and-deep-li-49582-states-with-one-next-action-desktop/error-context.md",
+    "repxir/test-results/app-settings-and-data-expo-949c5-ing-and-import-restore-data-mobile/error-context.md",
+    "repxir/test-results/app-navigation-and-deep-li-49582-states-with-one-next-action-mobile/error-context.md",
+    "repxir/test-results/app-settings-and-data-swit-2077b-display-not-recorded-values-desktop/error-context.md",
+    "repxir/test-results/journeys-Journey-1-—-start-aa6b9-t-asks-to-resume-or-discard-desktop/error-context.md",
+    "repxir/test-results/journeys-Journey-1-—-start-aa6b9-t-asks-to-resume-or-discard-mobile/error-context.md",
+    "repxir/test-results/app-settings-and-data-expo-949c5-ing-and-import-restore-data-desktop/error-context.md",
+    "repxir/test-results/app-settings-and-data-swit-2077b-display-not-recorded-values-mobile/error-context.md",
+    "REPXIR_Brand_Guide.md",
+    "repxir/node_modules/@exodus/bytes/README.md",
+    "repxir/node_modules/@bramus/specificity/README.md",
+    "repxir/node_modules/@adobe/css-tools/docs/EXAMPLES.md",
+    "repxir/node_modules/@adobe/css-tools/docs/CHANGELOG.md",
+    "repxir/node_modules/@adobe/css-tools/docs/AST.md",
+    "repxir/node_modules/@adobe/css-tools/docs/API.md"
+  ]
+}

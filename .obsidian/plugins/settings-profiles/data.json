@@ -1,0 +1,19 @@
+{
+  "activeProfile": {
+    "name": "Default",
+    "modifiedAt": "2026-10-14T15:45:42.450Z"
+  },
+  "profileUpdate": true,
+  "profileUpdateDelay": 800,
+  "uiUpdate": true,
+  "uiUpdateInterval": 1000,
+  "devices": {
+    "8ceefbd20b10c0bd7abd9b279a0b859283ea384dbdc463fd594dc57fe0a4f0b5": "/Users/sai/Library/Application Support/ObsidianPlugins/Profiles"
+  },
+  "statusbarInteraction": {
+    "click": "auto",
+    "ctrl_click": "none",
+    "shift_click": "none",
+    "alt_click": "none"
+  }
+}

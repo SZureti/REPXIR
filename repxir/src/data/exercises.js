@@ -1,0 +1,212 @@
+// Built-in exercise catalog. Templates and custom workouts reference these ids.
+// Instructions are short general cues, not a substitute for coaching or medical advice.
+
+const ex = (id, name, measurement, primaryMuscles, secondaryMuscles, equipment, instructions, safetyNote, alternatives = []) => ({
+  id,
+  name,
+  measurement,
+  primaryMuscles,
+  secondaryMuscles,
+  equipment,
+  instructions,
+  safetyNote,
+  alternatives,
+})
+
+export const EXERCISES = [
+  // Chest
+  ex('push-up', 'Push-up', 'reps_only', ['chest'], ['triceps', 'shoulders', 'core'], ['bodyweight'],
+    'Hands under shoulders, body in one straight line. Lower your chest toward the floor, then press back up.',
+    'Drop to your knees or use a raised surface if your hips sag.', ['incline-push-up']),
+  ex('db-bench-press', 'Dumbbell bench press', 'reps_weight', ['chest'], ['triceps', 'shoulders'], ['dumbbell'],
+    'Lie on a bench or the floor with dumbbells over your chest. Lower them to chest level with elbows angled slightly in, then press up.',
+    'Choose a load you can control for every rep; use the floor if you have no bench.', ['push-up', 'barbell-floor-press']),
+  ex('incline-push-up', 'Incline push-up', 'reps_only', ['chest'], ['triceps', 'shoulders'], ['bodyweight'],
+    'Place your hands on a sturdy bench, counter, or wall. Keep a straight body line and lower your chest to the edge.',
+    'Make sure the surface cannot slide or tip.', ['push-up']),
+  ex('db-chest-fly', 'Dumbbell chest fly', 'reps_weight', ['chest'], ['shoulders'], ['dumbbell'],
+    'Lie back with dumbbells over your chest and a soft bend in your elbows. Open your arms in a wide arc, then squeeze them back together.',
+    'Use light weights and stop the stretch before your shoulders feel strained.', ['db-bench-press']),
+
+  // Back
+  ex('db-bent-over-row', 'Bent-over row', 'reps_weight', ['back'], ['biceps', 'shoulders'], ['dumbbell'],
+    'Hinge at the hips with a flat back and dumbbells hanging below your shoulders. Pull them toward your hips, then lower with control.',
+    'Keep your spine neutral; reduce the load if your lower back rounds.', ['one-arm-db-row', 'band-row']),
+  ex('band-row', 'Resistance band row', 'reps_only', ['back'], ['biceps'], ['bands'],
+    'Anchor the band at chest height or loop it around your feet while seated. Pull the handles toward your ribs and squeeze your shoulder blades.',
+    'Check the anchor is secure before every set. No anchor? Loop the band around your feet while seated.', ['db-bent-over-row']),
+  ex('one-arm-db-row', 'One-arm dumbbell row', 'reps_weight', ['back'], ['biceps'], ['dumbbell'],
+    'Support one hand and knee on a bench. Row the dumbbell toward your hip, keeping your torso still. Repeat on each side.',
+    'Avoid twisting your torso to lift the weight.', ['db-bent-over-row']),
+  ex('db-reverse-fly', 'Reverse fly', 'reps_weight', ['back', 'shoulders'], [], ['dumbbell'],
+    'Hinge forward with light dumbbells hanging down. Raise them out to the sides with soft elbows, leading with the back of your hands.',
+    'Light weights work best; this is a small-muscle movement.', ['band-pull-apart']),
+
+  // Shoulders
+  ex('db-overhead-press', 'Overhead press', 'reps_weight', ['shoulders'], ['triceps', 'core'], ['dumbbell'],
+    'Stand tall with dumbbells at shoulder height. Brace your core and press overhead until your arms are straight, then lower.',
+    'Avoid arching your lower back; sit down if balance is a challenge.', ['barbell-overhead-press']),
+  ex('db-lateral-raise', 'Lateral raise', 'reps_weight', ['shoulders'], [], ['dumbbell'],
+    'Hold light dumbbells at your sides. Raise them out to shoulder height with a slight elbow bend, then lower slowly.',
+    'Do not swing; stop at shoulder height.', ['band-pull-apart']),
+  ex('db-front-raise', 'Front raise', 'reps_weight', ['shoulders'], [], ['dumbbell'],
+    'Hold dumbbells in front of your thighs. Raise them forward to shoulder height, pause, and lower with control.',
+    'Keep your torso still instead of leaning back.', ['db-lateral-raise']),
+  ex('band-pull-apart', 'Band pull-apart', 'reps_only', ['shoulders', 'back'], [], ['bands'],
+    'Hold a band at shoulder height with straight arms. Pull it apart until it touches your chest, then return slowly.',
+    'Choose a lighter band if you lose control on the way back.', ['db-reverse-fly']),
+
+  // Biceps
+  ex('db-alternating-curl', 'Alternating curl', 'reps_weight', ['biceps'], ['forearms'], ['dumbbell'],
+    'Stand with dumbbells at your sides, palms forward. Curl one arm at a time while keeping your elbows by your ribs.',
+    'Keep your torso still; swinging means the load is too heavy.', ['band-curl']),
+  ex('db-hammer-curl', 'Hammer curl', 'reps_weight', ['biceps'], ['forearms'], ['dumbbell'],
+    'Hold dumbbells with palms facing each other. Curl them up without rotating your wrists, then lower slowly.',
+    'Control the lowering phase.', ['db-alternating-curl']),
+  ex('band-curl', 'Band curl', 'reps_only', ['biceps'], ['forearms'], ['bands'],
+    'Stand on the middle of the band and hold the handles. Curl up with elbows fixed at your sides.',
+    'Make sure the band is secure under your feet.', ['db-alternating-curl']),
+
+  // Triceps
+  ex('close-grip-push-up', 'Close-grip push-up', 'reps_only', ['triceps'], ['chest', 'shoulders'], ['bodyweight'],
+    'Set your hands just inside shoulder width. Lower with elbows tucked close to your body, then press back up.',
+    'Elevate your hands or drop to your knees to make it easier.', ['incline-push-up']),
+  ex('db-overhead-triceps-extension', 'Overhead triceps extension', 'reps_weight', ['triceps'], [], ['dumbbell'],
+    'Hold one dumbbell overhead with both hands. Lower it behind your head by bending your elbows, then extend.',
+    'Keep your ribs down and use a light load to start.', ['band-pushdown']),
+  ex('band-pushdown', 'Band pushdown', 'reps_only', ['triceps'], [], ['bands'],
+    'Anchor the band above head height. With elbows pinned at your sides, push the band down until your arms are straight.',
+    'Requires a secure high anchor such as a door anchor. No anchor? Do overhead extensions with the band under your foot.', ['db-overhead-triceps-extension']),
+
+  // Core
+  ex('dead-bug', 'Dead bug', 'reps_only', ['core'], [], ['bodyweight'],
+    'Lie on your back with arms up and knees over hips. Slowly lower the opposite arm and leg, then switch sides.',
+    'Keep your lower back gently pressed toward the floor.', ['bird-dog']),
+  ex('plank', 'Plank', 'duration', ['core'], ['shoulders', 'glutes'], ['bodyweight'],
+    'Forearms under shoulders, body in a straight line from head to heels. Breathe steadily and hold.',
+    'Drop to your knees or shorten the hold before your form breaks.', ['dead-bug']),
+  ex('bird-dog', 'Bird dog', 'reps_only', ['core'], ['glutes', 'back'], ['bodyweight'],
+    'On hands and knees, reach one arm forward and the opposite leg back. Pause, return, and switch sides.',
+    'Move slowly and keep your hips level.', ['dead-bug']),
+  ex('crunch', 'Controlled crunch', 'reps_only', ['core'], [], ['bodyweight'],
+    'Lie on your back with knees bent. Curl your shoulders off the floor using your abs, then lower slowly.',
+    'Support your head lightly; do not pull on your neck.', ['dead-bug']),
+
+  // Quadriceps
+  ex('squat', 'Squat', 'reps_weight', ['quads'], ['glutes', 'core'], ['bodyweight'],
+    'Feet about shoulder width apart. Sit your hips back and down, keep your chest up, then stand through your whole foot.',
+    'Squat to a depth you can control; use a chair as a target if helpful.', ['goblet-squat']),
+  ex('split-squat', 'Split squat', 'reps_weight', ['quads'], ['glutes'], ['bodyweight'],
+    'Stand in a long staggered stance. Lower your back knee toward the floor, then drive up through your front foot. Repeat on each side.',
+    'Hold onto a wall or chair for balance if needed.', ['reverse-lunge']),
+  ex('step-up', 'Step-up', 'reps_weight', ['quads'], ['glutes'], ['bodyweight'],
+    'Place one foot on a sturdy step or box. Drive through that foot to stand up, then step down with control. Repeat on each side.',
+    'Use a lower step until you feel stable.', ['split-squat']),
+  ex('wall-sit', 'Wall sit', 'duration', ['quads'], ['glutes'], ['bodyweight'],
+    'Lean your back against a wall and slide down until your knees are bent. Hold the position.',
+    'Sit higher on the wall if your knees feel uncomfortable.', ['squat']),
+
+  // Hamstrings
+  ex('db-romanian-deadlift', 'Romanian deadlift', 'reps_weight', ['hamstrings'], ['glutes', 'back'], ['dumbbell'],
+    'Hold dumbbells in front of your thighs. Push your hips back with a slight knee bend until you feel a hamstring stretch, then stand tall.',
+    'Keep a flat back and the weights close to your legs.', ['good-morning']),
+  ex('band-leg-curl', 'Band leg curl', 'reps_only', ['hamstrings'], [], ['bands'],
+    'Lie face down with a band anchored low and looped around your ankle. Curl your heel toward your glutes, then lower slowly.',
+    'Requires a low, secure anchor. No anchor? Swap in bridge walkouts.', ['bridge-walkout']),
+  ex('good-morning', 'Good morning', 'reps_weight', ['hamstrings'], ['glutes', 'back'], ['bodyweight'],
+    'Hands behind your head or a light load across your shoulders. Hinge at the hips with a flat back, then return to standing.',
+    'Start with bodyweight to learn the hinge.', ['db-romanian-deadlift']),
+  ex('bridge-walkout', 'Bridge walkout', 'reps_only', ['hamstrings'], ['glutes'], ['bodyweight'],
+    'From a glute bridge, walk your heels out a few small steps while keeping your hips up, then walk them back in.',
+    'Only walk out as far as you can keep your hips lifted.', ['glute-bridge']),
+
+  // Glutes
+  ex('glute-bridge', 'Glute bridge', 'reps_weight', ['glutes'], ['hamstrings'], ['bodyweight'],
+    'Lie on your back with knees bent and feet flat. Drive through your heels to lift your hips, squeeze, and lower.',
+    'Avoid over-arching your lower back at the top.', ['hip-thrust']),
+  ex('hip-thrust', 'Hip thrust', 'reps_weight', ['glutes'], ['hamstrings'], ['bodyweight'],
+    'Rest your upper back on a bench with feet flat. Lower your hips, then drive them up until your body is level from knees to shoulders.',
+    'Make sure the bench is stable; pad any load across your hips.', ['glute-bridge']),
+  ex('reverse-lunge', 'Reverse lunge', 'reps_weight', ['glutes', 'quads'], ['hamstrings'], ['bodyweight'],
+    'Step one foot back and lower until both knees are bent. Push through your front foot to return. Alternate sides.',
+    'Hold a wall or chair for balance if needed.', ['split-squat']),
+  ex('lateral-band-walk', 'Lateral band walk', 'reps_only', ['glutes'], [], ['bands'],
+    'Place a mini band around your legs above the knees. Bend slightly and take controlled steps sideways. Count steps in each direction.',
+    'Keep tension on the band; do not let your knees cave in.', ['glute-bridge']),
+
+  // Calves
+  ex('standing-calf-raise', 'Standing calf raise', 'reps_weight', ['calves'], [], ['bodyweight'],
+    'Stand tall, rise onto the balls of your feet, pause at the top, and lower slowly.',
+    'Hold a wall for balance.', ['single-leg-calf-raise']),
+  ex('single-leg-calf-raise', 'Single-leg calf raise', 'reps_only', ['calves'], [], ['bodyweight'],
+    'Stand on one foot and rise onto the ball of that foot, then lower with control. Repeat on each side.',
+    'Use a wall or rail for balance.', ['standing-calf-raise']),
+  ex('seated-calf-raise', 'Seated calf raise', 'reps_weight', ['calves'], [], ['dumbbell'],
+    'Sit with feet flat and a dumbbell resting on your knees. Raise your heels as high as you can, then lower.',
+    'Pad the weight on your knees.', ['standing-calf-raise']),
+
+  // Kettlebell
+  ex('goblet-squat', 'Goblet squat', 'reps_weight', ['quads'], ['glutes', 'core'], ['kettlebell'],
+    'Hold a kettlebell at your chest by the horns. Squat down between your knees, keep your chest up, and stand.',
+    'Keep the bell close to your body.', ['squat']),
+  ex('kb-deadlift', 'Kettlebell deadlift', 'reps_weight', ['hamstrings', 'glutes'], ['back'], ['kettlebell'],
+    'Stand over the kettlebell. Hinge at the hips, grip the handle, and stand up by driving your hips forward.',
+    'Keep a flat back and the bell between your feet.', ['db-romanian-deadlift']),
+  ex('kb-row', 'Kettlebell row', 'reps_weight', ['back'], ['biceps'], ['kettlebell'],
+    'Hinge forward with one hand braced on a bench or your knee. Row the kettlebell to your hip, then lower. Repeat on each side.',
+    'Avoid twisting your torso.', ['one-arm-db-row']),
+  ex('kb-overhead-press', 'Kettlebell overhead press', 'reps_weight', ['shoulders'], ['triceps', 'core'], ['kettlebell'],
+    'Hold the kettlebell at your shoulder in the rack position. Press it overhead, then lower with control. Repeat on each side.',
+    'Brace your core and avoid leaning back.', ['db-overhead-press']),
+  ex('suitcase-carry', 'Suitcase carry', 'duration', ['core'], ['forearms', 'shoulders'], ['kettlebell'],
+    'Hold a kettlebell at one side. Walk tall without leaning toward the weight. Switch hands each set or each side.',
+    'Clear your walking path first.', ['plank']),
+
+  // Barbell
+  ex('barbell-back-squat', 'Barbell squat', 'reps_weight', ['quads'], ['glutes', 'core'], ['barbell'],
+    'Rest the bar across your upper back. Brace, sit your hips back and down, then drive up through your whole foot.',
+    'Use a rack with safety arms set just below your bottom position.', ['goblet-squat']),
+  ex('barbell-romanian-deadlift', 'Barbell Romanian deadlift', 'reps_weight', ['hamstrings'], ['glutes', 'back'], ['barbell'],
+    'Hold the bar at your hips. Push your hips back with soft knees and slide the bar down your thighs, then stand tall.',
+    'Keep the bar close and your back flat.', ['db-romanian-deadlift']),
+  ex('barbell-row', 'Barbell row', 'reps_weight', ['back'], ['biceps'], ['barbell'],
+    'Hinge forward with a flat back. Pull the bar toward your lower ribs, then lower it with control.',
+    'Reduce the load if your torso rises with each rep.', ['db-bent-over-row']),
+  ex('barbell-overhead-press', 'Barbell overhead press', 'reps_weight', ['shoulders'], ['triceps', 'core'], ['barbell'],
+    'Start with the bar at your collarbones. Brace and press it overhead, moving your head back slightly to clear the bar.',
+    'Squeeze your glutes to avoid arching your lower back.', ['db-overhead-press']),
+  ex('barbell-floor-press', 'Barbell floor press', 'reps_weight', ['chest'], ['triceps'], ['barbell'],
+    'Lie on the floor under the bar. Lower it until your upper arms touch the floor, then press up.',
+    'Set the bar up in a rack or have a spotter help you get it in position.', ['db-bench-press']),
+
+  // Resistance straps / bands
+  ex('strap-squat', 'Strap squat', 'reps_only', ['quads'], ['glutes'], ['bands'],
+    'Hold the straps or band handles at chest height and lean back slightly. Squat down and stand, using the straps for balance.',
+    'Requires a secure anchor. No anchor? Stand on the band and hold the handles at your shoulders.', ['squat']),
+  ex('strap-row', 'Strap row', 'reps_only', ['back'], ['biceps'], ['bands'],
+    'Hold the handles and lean back with straight arms and a rigid body. Pull your chest toward the handles, then lower.',
+    'Walk your feet back to make it easier. No anchor? Do a seated band row.', ['band-row']),
+  ex('strap-chest-press', 'Strap chest press', 'reps_only', ['chest'], ['triceps', 'shoulders'], ['bands'],
+    'Face away from the anchor with handles at chest height. Press forward until your arms are straight, then return.',
+    'Requires a secure anchor behind you. No anchor? Wrap the band around your upper back.', ['push-up']),
+  ex('strap-shoulder-press', 'Strap shoulder press', 'reps_only', ['shoulders'], ['triceps'], ['bands'],
+    'Stand on the band and hold the handles at shoulder height. Press overhead, then lower slowly.',
+    'Keep the band secure under both feet.', ['db-overhead-press']),
+  ex('strap-pallof-press', 'Pallof press', 'reps_only', ['core'], ['shoulders'], ['bands'],
+    'Stand side-on to a chest-height anchor holding the band at your chest. Press it straight out without letting your torso rotate. Repeat on each side.',
+    'Requires a secure anchor. No anchor? Swap in a dead bug.', ['dead-bug']),
+
+  // Bodyweight / calisthenics
+  ex('inverted-row', 'Inverted row', 'reps_only', ['back'], ['biceps', 'core'], ['bodyweight'],
+    'Lie under a sturdy table or low bar, grip the edge, and pull your chest up with a straight body.',
+    'Only use a surface that cannot move. No setup? Do a towel row against a door frame.', ['band-row']),
+
+  // Cardio / skill
+  ex('jump-rope', 'Jump rope', 'jumps_duration', ['cardio'], ['calves', 'shoulders'], ['jump-rope'],
+    'Turn the rope from your wrists and take small, quick hops on the balls of your feet.',
+    'Use a clear area with a forgiving surface. Rest whenever you need to.', []),
+]
+
+export const EXERCISES_BY_ID = Object.fromEntries(EXERCISES.map((e) => [e.id, e]))
+
+export const getExercise = (id) => EXERCISES_BY_ID[id] ?? null

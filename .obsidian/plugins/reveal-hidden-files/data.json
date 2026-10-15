@@ -1,0 +1,10 @@
+{
+  "showHidden": true,
+  "denyPatterns": [
+    ".git",
+    ".venv",
+    "node_modules"
+  ],
+  "denyPatternsInitialized": true,
+  "nodeModulesDenyApplied": true
+}
